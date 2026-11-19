@@ -1,0 +1,183 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Figtree', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display:
+        'Bricolage Grotesque', 'Figtree', ui-sans-serif, system-ui, sans-serif;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+ * Tema ExIA — ungu tinta (#5B34E6), kuning kunyit (#FFC933), latar #F4F1FF.
+ * Semua komponen shadcn (button, input, dialog, sidebar, dst.) membaca token ini.
+ */
+:root {
+    --background: #f4f1ff;
+    --foreground: #1b1340;
+    --card: #ffffff;
+    --card-foreground: #1b1340;
+    --popover: #ffffff;
+    --popover-foreground: #1b1340;
+    --primary: #5b34e6;
+    --primary-foreground: #ffffff;
+    --secondary: #e7e0ff;
+    --secondary-foreground: #3a1fb0;
+    --muted: #eee9ff;
+    --muted-foreground: #6b6590;
+    --accent: #e7e0ff;
+    --accent-foreground: #3a1fb0;
+    --destructive: #d8325a;
+    --destructive-foreground: #d8325a;
+    --border: #e0d8ff;
+    --input: #d3c8ff;
+    --ring: #8f7be8;
+    --chart-1: #5b34e6;
+    --chart-2: #1e7fe0;
+    --chart-3: #0e9f72;
+    --chart-4: #ffc933;
+    --chart-5: #d8325a;
+    --radius: 1rem;
+    --sidebar: #5b34e6;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #ffc933;
+    --sidebar-primary-foreground: #1b1340;
+    --sidebar-accent: #6e4cf0;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: #7a5af5;
+    --sidebar-ring: #ffc933;
+}
+
+.dark {
+    --background: #120d2b;
+    --foreground: #f4f1ff;
+    --card: #1b1340;
+    --card-foreground: #f4f1ff;
+    --popover: #1b1340;
+    --popover-foreground: #f4f1ff;
+    --primary: #8b6cff;
+    --primary-foreground: #120d2b;
+    --secondary: #2b2060;
+    --secondary-foreground: #f4f1ff;
+    --muted: #241a52;
+    --muted-foreground: #aaa1d6;
+    --accent: #2b2060;
+    --accent-foreground: #f4f1ff;
+    --destructive: #8f1f3d;
+    --destructive-foreground: #ff7d9b;
+    --border: #2f2466;
+    --input: #3a2e7a;
+    --ring: #8b6cff;
+    --chart-1: #8b6cff;
+    --chart-2: #4aa3ff;
+    --chart-3: #2fd1a0;
+    --chart-4: #ffc933;
+    --chart-5: #ff7d9b;
+    --sidebar: #1b1340;
+    --sidebar-foreground: #f4f1ff;
+    --sidebar-primary: #ffc933;
+    --sidebar-primary-foreground: #1b1340;
+    --sidebar-accent: #2b2060;
+    --sidebar-accent-foreground: #f4f1ff;
+    --sidebar-border: #2f2466;
+    --sidebar-ring: #ffc933;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/*
+ * Scope terang: halaman ujian yang selalu terang, kebal terhadap dark mode.
+ */
+.light {
+    --background: #f4f1ff;
+    --foreground: #1b1340;
+    --card: #ffffff;
+    --card-foreground: #1b1340;
+    --popover: #ffffff;
+    --popover-foreground: #1b1340;
+    --primary: #5b34e6;
+    --primary-foreground: #ffffff;
+    --secondary: #e7e0ff;
+    --secondary-foreground: #3a1fb0;
+    --muted: #eee9ff;
+    --muted-foreground: #6b6590;
+    --accent: #e7e0ff;
+    --accent-foreground: #3a1fb0;
+    --destructive: #d8325a;
+    --destructive-foreground: #d8325a;
+    --border: #e0d8ff;
+    --input: #d3c8ff;
+    --ring: #8f7be8;
+    color-scheme: light;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
